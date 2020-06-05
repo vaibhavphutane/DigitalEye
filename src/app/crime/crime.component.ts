@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrimeService } from './crime.service';
+import { CrimeService } from '../crime.service';
 
 @Component({
   selector: 'app-crime',
@@ -18,11 +18,10 @@ export class CrimeComponent implements OnInit {
 
   ngOnInit(): void {
     this.images = [
-      {img: '../../assets/images/image1.jpg', id: 1},
-      {img: '../../assets/images/image2.jpg', id: 2},
-      {img: '../../assets/images/image3.jpg', id: 3},
-      {img: '../../assets/images/image4.jpg', id: 4},
-      {img: '../../assets/images/image5.jpg', id: 5},
+      {img: '../../assets/images/img01.PNG', id: 1},
+      {img: '../../assets/images/img08.PNG', id: 2},
+      {img: '../../assets/images/img09.PNG', id: 3},
+      {img: '../../assets/images/img10.PNG', id: 4},
     ];
   }
 

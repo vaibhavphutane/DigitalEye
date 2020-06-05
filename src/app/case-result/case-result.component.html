@@ -1,0 +1,118 @@
+<div class="wrapper">
+  <div class="overlay">
+    <div class="wrap-track-status">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+            aria-controls="pills-profile" aria-selected="false">Image Analysis</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div class="div-tab col-md-12">
+            <h3>Image Analyser</h3>
+            <div class="div-tab col-md-8 col-sm-12">
+              <div class="main-content">
+                <h5>[Click on the images below]</h5>
+                <div class="img-container">
+                  <div class="row">
+                    <div class="column">
+                      <img *ngFor="let source of images" [src]="source" alt="img01">
+                    </div>
+                  </div>
+                  <div class="content-wrap">
+                    <div class="div-first">
+                      <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                      <img id="expandedImg">
+                      <div id="imgtext"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="div-tab col-md-4 col-sm-12">
+              <div class="panel panel-default drug-image-wrap">
+                <div class="panel-heading">
+                  <h4>6 images with drug items found</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="img-wrap">
+                    <div class="col-md-6">
+                      <img src="img/img01.png">
+                    </div>
+                    <div class="col-md-6">
+                      <img src="img/img01.png">
+                    </div>
+                    <div class="col-md-6">
+                      <img src="img/img01.png">
+                    </div>
+                    <div class="col-md-6">
+                      <img src="img/img01.png">
+                    </div>
+                    <div class="col-md-6">
+                      <img src="img/img01.png">
+                    </div>
+                    <div class="col-md-6">
+                      <img src="img/img01.png">
+                    </div>
+                  </div>
+                  <div class="row list-detail">
+                    <div class="col-md-6">
+                      <h4><span class="find">Syringe</span></h4>
+                    </div>
+                    <div class="col-md-6">
+                      <h4><span class="find">Heroin</span></h4>
+                    </div>
+                    <div class="col-md-6">
+                      <h4><span class="find"> Ecstasy</span></h4>
+                    </div>
+                    <div class="col-md-6">
+                      <h4> <span class="find">Spoon</span></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default drug-image-wrap">
+                <div class="panel-heading">
+                  <h4>List of objects identified:</h4>
+                </div>
+                <div class="panel-body">
+
+                  <div class="row list-detail">
+                    <div class="col-md-4">
+                      <h4><span class="find">Syringe</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4><span class="find">Heroin</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4> <span class="find">Watch</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4> <span class="">Spoon</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4><span class="find"> Ecstasy</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4><span class=""> hand</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4> <span class="">bottle</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4> <span class="">bottle</span></h4>
+                    </div>
+                    <div class="col-md-4">
+                      <h4><span class="find"> bottle</span></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

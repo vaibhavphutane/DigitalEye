@@ -1,0 +1,76 @@
+.wrapper {
+  background-image: url(../../assets/images/Picture1.png);
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  position: relative;
+}
+.wrap-input {
+  position: absolute;
+  width: 60%;
+  min-height: 65%;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  height: 65%;
+}
+.align-center {
+  text-align: center;
+  color: white;
+}
+.input-case {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background: rgb(255, 192, 0);
+  color: #000;
+  height: 35px;
+  padding: 0px 10px;
+  border: 1px solid rgb(255, 192, 0);
+  width: 45%;
+  text-align: center;
+  min-width: 250px;
+  /* float: left; */
+}
+.wrap-input form {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3%;
+}
+.record-video {
+  width: 135px;
+
+  height: 135px;
+
+  float: left;
+
+  text-align: center;
+
+  border: 2px solid #ffc000;
+
+  margin: 10px 20px;
+
+  border-radius: 50%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: relative;
+}
+.record-video [type="file"] {
+  width: 100%;
+
+  float: left;
+
+  opacity: 0;
+
+  height: 100%;
+
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+}

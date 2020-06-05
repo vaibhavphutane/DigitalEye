@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="wrap-input">
+    <h2 class="align-center">
+      Welcome to AI-led Drug scene Investigation Demo
+    </h2>
+    <form>
+      <input type="text" name="" placeholder="Enter your case number" class="input-case" />
+      <div class="wrap-media">
+        <div class="record-video">
+          <input type="file"(change)="fileLoaded($event)" multiple="true" name="" />
+          <img src="../../assets/images/image.png" />
+          <p>Take Photo</p>
+        </div>
+      </div>
+      <br />
+      <a routerLink="/case-result"><button type="button" name="" value="Preview & Submit for processing" class="input-case">
+          Preview & Submit for processing
+        </button></a>
+    </form>
+  </div>
+</div>

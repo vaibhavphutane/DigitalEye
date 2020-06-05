@@ -7,16 +7,26 @@ import { of } from 'rxjs';
 })
 export class CrimeService {
 
+  files: any[];
+
+
   constructor(private http: HttpClient) { }
 
   postImageAPI(crimeSceneImage: File) {
    const fd = new FormData();
-   fd.append(crimeSceneImage.name, crimeSceneImage);
-   return of({imageURL: '../../assets/images/image1.jpg'});
-  //  return this.http.post('', fd, {reportProgress: true});
+   fd.append('file', crimeSceneImage);
+   return this.http.post('http://13.76.159.68/upload_file', fd, {});
   }
 
   getImage(imageObj) {
    return this.http.get(imageObj.img, {responseType: 'blob'}).toPromise();
+  }
+
+  setFiles(urls: any[]) {
+    this.files = [...urls];
+  }
+
+  get getFiles() {
+    return this.files;
   }
 }
