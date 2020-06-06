@@ -7,17 +7,14 @@ import { CrimeComponent } from './crime/crime.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DynamicPredictionComponent } from './dynamic-prediction/dynamic-prediction.component';
 import { HomeComponent } from './home/home.component';
-import { CaseDetailsComponent } from './case-details/case-details.component';
-import { CaseResultComponent } from './case-result/case-result.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CrimeComponent,
     DynamicPredictionComponent,
-    HomeComponent,
-    CaseDetailsComponent,
-    CaseResultComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

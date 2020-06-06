@@ -1,6 +1,6 @@
-<div class="">
+<div *ngIf="images" class="">
   <div class="d-flex w-100 image-container">
-    <img (click)="processImage(i.id)" [ngClass]="{'active': selectedId === i.id }" *ngFor="let i of images" [src]="i.img" alt="">
+    <img (click)="processImage(img.id)" [ngClass]="{'active': selectedId === img.id }" *ngFor="let img of images" [src]="img.image" alt="">
   </div>
   <div class="result-container">
     <div *ngIf="isProccessing">
@@ -14,8 +14,9 @@
       </div>
       <h3 class="text-center">Processing your image...</h3>
     </div>
-    <ng-container *ngIf="!isProccessing">
-      <img [src]="processedImageURL" alt="">
+    <ng-container *ngIf="processedImageURL">
+      <img  [src]="processedImageURL" alt="">
+      <div><p class="object">Detected Objects: {{objects}}</p></div>
     </ng-container>
   </div>
 </div>

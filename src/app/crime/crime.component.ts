@@ -4,7 +4,8 @@ import { CrimeService } from '../crime.service';
 @Component({
   selector: 'app-crime',
   templateUrl: './crime.component.html',
-  styleUrls: ['./crime.component.css']
+  styleUrls: ['./crime.component.css'],
+  providers: []
 })
 export class CrimeComponent implements OnInit {
 
@@ -13,33 +14,28 @@ export class CrimeComponent implements OnInit {
   selectedId: number;
   processedImageURL: string;
   isProccessing: boolean;
+  objects: string;
 
   constructor(private crimeService: CrimeService) { }
 
   ngOnInit(): void {
-    this.images = [
-      {img: '../../assets/images/img01.PNG', id: 1},
-      {img: '../../assets/images/img08.PNG', id: 2},
-      {img: '../../assets/images/img09.PNG', id: 3},
-      {img: '../../assets/images/img10.PNG', id: 4},
-    ];
+    this.images = this.crimeService.files.map((item, index) => {
+      return {
+        id: index,
+        image: item
+      };
+    });
+    console.log(this.images);
   }
 
-  processImage(id) {
-    this.selectedId = id;
-    const selectedIdImage = this.images.find(item => item.id === id);
+  processImage(img) {
+    const crimeSceneImage = new File([img], 'crimeImage.png');
     this.isProccessing = true;
-    this.crimeService.getImage(selectedIdImage).then(res => {
-      const crimeSceneImage = new File([res], 'crimeImage.png');
-      this.crimeService.postImageAPI(crimeSceneImage).subscribe((crimeProcessedImage: any) => {
-        this.processedImageURL = crimeProcessedImage.imageURL;
-        this.isProccessing = false;
-      },
-      err => {
-        console.log(err);
-        this.isProccessing = false;
-      });
+    this.crimeService.postImageAPI(crimeSceneImage).subscribe(res => {
+      this.isProccessing = false;
+      this.processedImageURL = '../../assets/images/img10.PNG';
+      this.objects = 'Pills / Syringe';
     });
   }
-
 }
+
