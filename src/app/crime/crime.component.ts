@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrimeService } from '../crime.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-crime',
@@ -13,6 +14,8 @@ export class CrimeComponent implements OnInit {
   processedImageURL: string;
   isProccessing: boolean;
   objects: string;
+  basUrl = environment.baseURL;
+
 
   constructor(private crimeService: CrimeService) {}
 
@@ -29,13 +32,11 @@ export class CrimeComponent implements OnInit {
   processImage(img) {
     const crimeSceneImage = new File([img], 'crimeImage.png');
     this.isProccessing = true;
-    this.crimeService.postImageAPI(crimeSceneImage).subscribe((res) => {
+    this.crimeService.postImageAPI(crimeSceneImage).subscribe((res: any) => {
       this.isProccessing = false;
-      this.processedImageURL = '../../assets/images/img10.PNG';
-      this.objects = 'Pills / Syringe';
+      this.processedImageURL = this.basUrl + 'output' + res.message.file;
+      this.objects = res.message.object;
     });
   }
-
-
 
 }
