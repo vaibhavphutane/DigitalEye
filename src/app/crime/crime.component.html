@@ -1,7 +1,7 @@
 
 <div *ngIf="images" class="">
   <div class="d-flex w-100 image-container">
-    <img (click)="processImage(img.id)" [ngClass]="{'active': selectedId === img.id }" *ngFor="let img of images" [src]="img.image" alt="">
+    <img (click)="processImage(img.image)" [ngClass]="{'active': selectedId === img.id }" *ngFor="let img of images" [src]="img.image" alt="">
   </div>
 
   <div class="result-container">

@@ -15,7 +15,7 @@ export class CrimeService {
   postImageAPI(crimeSceneImage: File) {
    const fd = new FormData();
    fd.append('file', crimeSceneImage);
-   return this.http.post('http://13.76.159.68/upload_file', fd, {});
+   return this.http.post('http://172.16.0.95:5000/upload_file', fd, {});
   }
 
   getImage(imageObj) {
@@ -28,5 +28,9 @@ export class CrimeService {
 
   get getFiles() {
     return this.files;
+  }
+
+  getFileBlob(img) {
+    return this.http.get(img, {responseType: 'blob'});
   }
 }
