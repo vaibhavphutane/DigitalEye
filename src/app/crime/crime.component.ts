@@ -30,12 +30,14 @@ export class CrimeComponent implements OnInit {
   }
 
   processImage(img) {
-    const crimeSceneImage = new File([img], 'crimeImage.png');
-    this.isProccessing = true;
-    this.crimeService.postImageAPI(crimeSceneImage).subscribe((res: any) => {
-      this.isProccessing = false;
-      this.processedImageURL = this.basUrl + 'output' + res.message.file;
-      this.objects = res.message.object;
+    this.crimeService.getFileBlob(img).subscribe((res: any) => {
+      const crimeSceneImage = new File([res], 'crimeImage.png');
+      this.isProccessing = true;
+      this.crimeService.postImageAPI(crimeSceneImage).subscribe((response: any) => {
+        this.isProccessing = false;
+        this.processedImageURL = this.basUrl + 'output' + response.message.file;
+        this.objects = response.message.object;
+      });
     });
   }
 

@@ -29,4 +29,8 @@ export class CrimeService {
   get getFiles() {
     return this.files;
   }
+
+  getFileBlob(img) {
+    return this.http.get(img, {responseType: 'blob'});
+  }
 }
