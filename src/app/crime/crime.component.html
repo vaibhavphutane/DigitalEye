@@ -1,24 +1,55 @@
-
-<div *ngIf="images" class="">
-  <div class="d-flex w-100 image-container">
-    <img (click)="processImage(img.image)" [ngClass]="{'active': selectedId === img.id }" *ngFor="let img of images" [src]="img.image" alt="">
-  </div>
-
-  <div class="result-container">
-    <div *ngIf="isProccessing">
-      <div class="wrap-loader">
-        <div class="loader-wrapper">
-          <div class="sandwatch-holder">
-            <div class="sandwatch-top"></div>
-            <div class="sandwatch-bottom"></div>
-          </div>
-        </div>
-      </div>
-      <h3 class="text-center">Processing your image...</h3>
-    </div>
-    <ng-container *ngIf="processedImageURL">
-      <img  [src]="processedImageURL" alt="">
-      <div><p class="object">Detected Objects: {{objects}}</p></div>
-    </ng-container>
+<div class="wrapper">
+  <div class="overlay">
+     <div class="wrap-track-status">
+           <div class="" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div class="div-tab col-md-12">
+                 <h3>Image Analyser</h3>
+                 <div class="div-tab col-md-8 col-sm-12">
+                    <div class="main-content">
+                       <h5>[Click on the images below]</h5>
+                       <div class="img-container">
+                          <div class="row">
+                             <div  *ngFor="let img of images" class="column">
+                              <img (click)="processImage(img.image)" [ngClass]="{'active': selectedId === img.id }" [src]="img.image" alt="">
+                             </div>
+                          </div>
+                       </div>
+                       <div class="content-wrap">
+                        <div  *ngIf="processedImageURL" class="div-first">
+                           <span onclick="this.parentElement.style.display='none'"
+                              class="closebtn">&times;</span>
+                           <img  [src]="processedImageURL" alt="">
+                        </div>
+                     </div>
+                       <div *ngIf="isProccessing">
+                        <div class="wrap-loader">
+                          <div class="loader-wrapper">
+                            <div class="sandwatch-holder">
+                              <div class="sandwatch-top"></div>
+                              <div class="sandwatch-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <h3 class="text-center">Processing your image...</h3>
+                      </div>
+                    </div>
+                 </div>
+                 <div *ngIf="objects" class="div-tab object col-md-4 col-sm-12">
+                    <div class="panel panel-default drug-image-wrap">
+                       <div class="panel-heading">
+                          <h4>List of objects identified:</h4>
+                       </div>
+                       <div class="panel-body">
+                          <div class="row list-detail">
+                             <div class="col-md-4">
+                                <h4><span class="find"> {{objects}}</span></h4>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+     </div>
   </div>
 </div>

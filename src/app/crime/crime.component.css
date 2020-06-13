@@ -10,7 +10,6 @@
   margin: 10px;
 }
 
-
 .active {
   border: 5px solid #699be4;
 }
@@ -19,9 +18,8 @@
   display: block;
   margin-top: 10px;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
+
 .result-container img {
   display: block;
   margin: auto;
