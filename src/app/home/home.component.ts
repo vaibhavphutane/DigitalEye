@@ -8,6 +8,7 @@ import { CrimeService } from '../crime.service';
 })
 export class HomeComponent implements OnInit {
   imageUrls: any[];
+  caseNumber: string;
   constructor(private crimeService: CrimeService) {}
 
   ngOnInit(): void {

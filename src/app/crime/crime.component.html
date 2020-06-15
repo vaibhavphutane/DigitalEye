@@ -3,7 +3,10 @@
      <div class="wrap-track-status">
            <div class="" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div class="div-tab col-md-12">
-                 <h3>Image Analyser</h3>
+                <div class="header">
+                  <img src="../../assets/images/logo.JPG" alt="">
+                  <h3>Image Analyser for case number: {{caseNumber}}</h3>
+                </div>
                  <div class="div-tab col-md-8 col-sm-12">
                     <div class="main-content">
                        <h5>[Click on the images below]</h5>
@@ -15,9 +18,7 @@
                           </div>
                        </div>
                        <div class="content-wrap">
-                        <div  *ngIf="processedImageURL" class="div-first">
-                           <span onclick="this.parentElement.style.display='none'"
-                              class="closebtn">&times;</span>
+                        <div *ngIf="processedImageURL" class="div-first">
                            <img  [src]="processedImageURL" alt="">
                         </div>
                      </div>

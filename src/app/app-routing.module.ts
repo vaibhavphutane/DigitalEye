@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'dynamic', component: DynamicPredictionComponent },
-  { path: 'crime-scene', component: CrimeComponent }
+  { path: 'crime-scene/:caseNumber', component: CrimeComponent }
 ];
 
 @NgModule({

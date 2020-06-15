@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrimeService } from '../crime.service';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crime',
@@ -15,11 +16,17 @@ export class CrimeComponent implements OnInit {
   isProccessing: boolean;
   objects: string;
   basUrl = environment.baseURL;
+  caseNumber: string;
 
 
-  constructor(private crimeService: CrimeService) {}
+  constructor(private crimeService: CrimeService,
+              private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe(res => {
+     this.caseNumber = res.caseNumber;
+    });
+
     this.images = this.crimeService.files && this.crimeService.files.map((item, index) => {
       return {
         id: index,

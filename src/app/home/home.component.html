@@ -3,8 +3,8 @@
     <h2 class="align-center">
       Welcome to AI-led Drug scene Investigation Demo
     </h2>
-    <form>
-      <input type="text" name="" placeholder="Enter your case number" class="input-case" />
+      <input required type="text" #cnumber="ngModel" [(ngModel)]="caseNumber" name="" placeholder="Enter your case number" class="input-case" />
+      <span *ngIf="cnumber.touched && cnumber.invalid" class="">Please enter case number</span>
       <div class="wrap-media">
         <div class="record-video">
           <input type="file"(change)="fileLoaded($event)" multiple="true" name="" />
@@ -13,9 +13,10 @@
         </div>
       </div>
       <br />
-      <a routerLink="/crime-scene"><button type="button" name="" value="Preview & Submit for processing" class="input-case">
+      <a disabled="cnumber.invalid" [routerLink]="['/crime-scene', caseNumber]">
+        <button  type="button" name="" value="Preview & Submit for processing" class="input-case">
           Preview & Submit for processing
-        </button></a>
-    </form>
+        </button>
+      </a>
   </div>
 </div>
