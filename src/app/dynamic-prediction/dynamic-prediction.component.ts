@@ -94,12 +94,17 @@ export class DynamicPredictionComponent implements OnInit {
       return
     }
     this.speechTimeOut = setTimeout(() => {
-      var msg = new SpeechSynthesisUtterance();
-      msg.text = prediction.class;
-      window.speechSynthesis.speak(msg);
+      console.log(prediction);
+
+      this.objects.forEach(object => {
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = object;
+        window.speechSynthesis.speak(msg);
+      })
       clearTimeout(this.speechTimeOut);
       this.speechTimeOut = undefined;
-    }, 10000);
+      this.objects = [];
+    }, 5000);
   }
 
 }
