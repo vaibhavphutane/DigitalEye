@@ -11,6 +11,8 @@ export class DynamicPredictionComponent implements OnInit {
 
   @ViewChild('recordingVideoElement') recordingVideoElement: any;
   @ViewChild('canvasRef') canvasRef: any;
+  objects: string[] = [];
+  speechTimeOut: any;
 
   constructor() { }
 
@@ -43,7 +45,7 @@ export class DynamicPredictionComponent implements OnInit {
     }
   }
 
-  detectFrame (video, model) {
+  detectFrame(video, model) {
     model.detect(video).then(predictions => {
       this.renderPredictions(predictions);
       requestAnimationFrame(() => {
@@ -60,6 +62,7 @@ export class DynamicPredictionComponent implements OnInit {
     ctx.font = font;
     ctx.textBaseline = 'top';
     predictions.forEach(prediction => {
+      this.deboucedTextSpeech(prediction);
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
       const width = prediction.bbox[2];
@@ -83,4 +86,20 @@ export class DynamicPredictionComponent implements OnInit {
     });
   }
 
+  deboucedTextSpeech(prediction) {
+    if(!this.objects.includes(prediction.class)) {
+      this.objects.push(prediction.class); 
+    }
+    if(this.speechTimeOut) {
+      return
+    }
+    this.speechTimeOut = setTimeout(() => {
+      var msg = new SpeechSynthesisUtterance();
+      msg.text = prediction.class;
+      window.speechSynthesis.speak(msg);
+      clearTimeout(this.speechTimeOut);
+      this.speechTimeOut = undefined;
+    }, 10000);
   }
+
+}
